@@ -4,11 +4,6 @@ body {
   color: #3f4850;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
@@ -128,4 +123,3 @@ input {
     width: 100px;
   }
 }
-
