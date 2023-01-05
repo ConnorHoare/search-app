@@ -1,9 +1,15 @@
 import React from "react";
-import Pic from "./Pics";
+import Pic from "./Pic";
 
-const PicList = props => {
-    const results = props.data;
-    let pics = results.map(pic => <Pic/>)
-}
+const PicList = (props) => {
+  const results = props.data;
+  let pics = results.map((pic) => <Pic pic={pic} />);
 
-export default PicList
+  return (
+    <div>
+      {pics}
+    </div>
+  );
+};
+
+export default PicList;
