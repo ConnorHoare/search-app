@@ -7,18 +7,18 @@ const PhotoContainer = (props) => {
     <div className="photo-container">
       <h2>Results</h2>
       <ul>
-        {data.length > 0 ? (
-          data.map((photo) => (
-            <li key={photo.id}>
-              <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="" />
-            </li>
-          ))
+        {data ? (
+          data.length > 0 ? (
+            data.map((photo) => (
+              <li key={photo.id}>
+                <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="" />
+              </li>
+            ))
+          ) : null
         ) : (
-          <li className="not-found">
-            <h3>No Results Found</h3>
-            <p>Your search did not return any results. Please try again.</p>
-          </li>
+          <div>Loading...</div>
         )}
+
       </ul>
     </div>
   );

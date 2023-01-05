@@ -3,21 +3,20 @@ import Nav from "./Nav";
 import SearchForm from "./SearchForm";
 import PhotoContainer from "./PhotoContainer";
 import PicList from "./PicList";
-import Search from "./Search";
+import Photos from "./Photos";
 
 const Home = () => {
   const [pics, setPics] = useState([]);
+  const [defaultPics, setDefaultPics] = useState([]);
 
   return (
     <div className="container">
-      <Search pics={pics} setPics={setPics} />
+      <SearchForm />
       <Nav />
-      <PhotoContainer />
-      <div className="container">
-        <PicList data={pics} />
-      </div>
+      <Photos searchTerm="default" />
     </div>
-  );
-};
+  )
+}
+
 
 export default Home;

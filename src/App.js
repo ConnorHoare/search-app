@@ -14,7 +14,7 @@ import apiKey from "./config";
 
 function App() {
   const [pics, setPics] = useState([]);
-  const inputRef = useRef();
+  const inputRef = useRef('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +47,6 @@ function App() {
         <Route path="computer" element={<Computer />} />
         <Route path="/search/:query" element={<Search />} />
       </Routes>
-      <SearchForm onSearch={handleSearch} inputRef={inputRef} />
     </div>
   );
 }

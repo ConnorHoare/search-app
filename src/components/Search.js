@@ -36,7 +36,7 @@ const Search = ({ pics, setPics }) => {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <Photos pics={pics} />
+      <Photos searchTerm={searchTerm} />
     </div>
   );
 };
