@@ -1,8 +1,11 @@
 import React from "react";
+
+// Import components
 import SearchForm from "./SearchForm";
 import Nav from "./Nav";
 import Photos from "./Photos";
 
+// Dog component that displays a search form, nav bar, and photos with a search term of "dog"
 const Dog = () => {
   return (
     <div className="container">
@@ -13,4 +16,5 @@ const Dog = () => {
   )
 }
 
+// Export the Dog component
 export default Dog;

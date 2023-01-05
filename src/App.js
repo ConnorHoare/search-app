@@ -13,10 +13,14 @@ import Search from "./components/Search";
 import apiKey from "./config";
 
 function App() {
+  // Initialize the state for the search results
   const [pics, setPics] = useState([]);
+  // Initialize the reference for the search form input
   const inputRef = useRef('');
+  // Use the useNavigate hook from react-router-dom to navigate to different routes
   const navigate = useNavigate();
 
+  // Use the useEffect hook to fetch the search results from the Flickr API when the component mounts
   useEffect(() => {
     axios
       .get(
@@ -30,6 +34,7 @@ function App() {
         console.log(error);
       });
   }, []);
+
 
   const handleSearch = (event) => {
     event.preventDefault();

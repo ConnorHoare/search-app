@@ -1,21 +1,23 @@
 import React from "react";
-import { useState, useRef } from "react";
-import axios from "axios";
-import apiKey from "../config";
-import Photos from "./Photos";
+import { useState, useRef } from "react"; // useRef and useState hooks imported from React
+import axios from "axios"; // axios library for making HTTP requests
+import apiKey from "../config"; // file with API key
+import Photos from "./Photos"; // Photos component for displaying search results
 
 const SearchForm = () => {
-  const inputRef = useRef();
-  const [formValue, setFormValue] = useState('');
+  const inputRef = useRef(); // useRef hook to create a reference to the input element
+  const [formValue, setFormValue] = useState(''); // useState hook to create a state variable and its setter function
 
+  // Event handler for form submission
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(inputRef.current.value);
-    setFormValue(inputRef.current.value);
+    event.preventDefault(); // prevent default form submission behavior
+    console.log(inputRef.current.value); // log the value of the input element to the console
+    setFormValue(inputRef.current.value); // set the formValue state variable to the value of the input element
   }
 
   return (
     <div>
+      {/* form with a text input and submit button for the user to enter a search term */}
       <form className="search-form" onSubmit={handleSubmit}>
         <input type="search" name="search" placeholder="Search" ref={inputRef} required />
         <button type="submit" className="search-button">
@@ -25,6 +27,9 @@ const SearchForm = () => {
           </svg>
         </button>
       </form>
+      {/* rendering the Photos component and passing it the formValue as a prop called searchTerm. 
+      When the Photos component is rendered, 
+      it will use the searchTerm prop to search for photos on Flickr using the Flickr API.*/}
       <Photos searchTerm={formValue} />
     </div>
   )
