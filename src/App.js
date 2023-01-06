@@ -21,7 +21,7 @@ function App() {
   const navigate = useNavigate();
 
   // Use the useEffect hook to fetch the search results from the Flickr API when the component mounts
-  useEffect(() => {
+  const fetchPics = () => {
     axios
       .get(
         `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${inputRef.current.value}&per_page=24&format=json&nojsoncallback=1`
@@ -33,7 +33,13 @@ function App() {
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  };
+  
+  useEffect(() => {
+    fetchPics();
+  }, [inputRef.current.value]);
+  
+  
 
 
   const handleSearch = (event) => {

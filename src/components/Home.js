@@ -8,7 +8,7 @@ import PhotoContainer from "./PhotoContainer";
 import PicList from "./PicList";
 import Photos from "./Photos";
 
-const Home = () => {
+const Home = (props) => {
   // state to hold photos returned from search
   const [pics, setPics] = useState([]);
   // state to hold default photos to display on home page
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className="container">
     {/* search form component with props to update pics state and trigger search */}
-      <SearchForm setPics={setPics} />
+      <SearchForm fetchPics={props.fetchPics} />
     {/* nav component */}
       <Nav />
     {/* photos component with prop for default search term to display default photos */}

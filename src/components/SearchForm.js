@@ -4,7 +4,7 @@ import axios from "axios"; // axios library for making HTTP requests
 import apiKey from "../config"; // file with API key
 import Photos from "./Photos"; // Photos component for displaying search results
 
-const SearchForm = () => {
+const SearchForm = (props) => {
   const inputRef = useRef(); // useRef hook to create a reference to the input element
   const [formValue, setFormValue] = useState(''); // useState hook to create a state variable and its setter function
 
@@ -13,6 +13,7 @@ const SearchForm = () => {
     event.preventDefault(); // prevent default form submission behavior
     console.log(inputRef.current.value); // log the value of the input element to the console
     setFormValue(inputRef.current.value); // set the formValue state variable to the value of the input element
+    props.fetchPics(inputRef.current.value)
   }
 
   return (
@@ -27,10 +28,6 @@ const SearchForm = () => {
           </svg>
         </button>
       </form>
-      {/* rendering the Photos component and passing it the formValue as a prop called searchTerm. 
-      When the Photos component is rendered, 
-      it will use the searchTerm prop to search for photos on Flickr using the Flickr API.*/}
-      <Photos searchTerm={formValue} />
     </div>
   )
 }
